@@ -1,0 +1,52 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: observabilitylogsstorages.observability.ip812.com
+spec:
+  group: observability.ip812.com
+  names:
+    kind: ObservabilityLogsStorage
+    plural: observabilitylogsstorages
+    singular: observabilitylogsstorage
+  scope: Namespaced
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                memory:
+                  type: object
+                  properties:
+                    ttl:
+                      type: string
+                      format: duration
+                iceberg:
+                  type: object
+                  properties:
+                    endpointURL:
+                      type: string
+                    destinationPath:
+                      type: string
+                    s3Credentials:
+                      type: object
+                      properties:
+                        accessKeyIdSecretKey:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            key:
+                              type: string
+                        secretAccessKeySecretKey:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            key:
+                              type: string

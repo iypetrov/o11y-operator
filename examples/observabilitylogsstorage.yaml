@@ -1,0 +1,8 @@
+apiVersion: observability.ip812.com/v1
+kind: ObservabilityLogsStorage
+metadata:
+  name: example-storage
+  namespace: default
+spec:
+  memory:
+    ttl: "1h"
