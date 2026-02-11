@@ -25,7 +25,7 @@ func (r *ObservabilityLogsStorageReconciler) SetupWithManager(mgr ctrl.Manager) 
 }
 
 func (r *ObservabilityLogsStorageReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	r.Log.Info("reconciling webpage", "name", req.Name, "namespace", req.Namespace)
+	r.Log.Info("reconciling ObservabilityLogsStorage", "name", req.Name, "namespace", req.Namespace)
 
 	wp := observabilitylogsstorage.Crd{}
 
